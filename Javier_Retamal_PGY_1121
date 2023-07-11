@@ -1,0 +1,59 @@
+pisos = 10
+depas_por_piso = 4
+
+depas_disponibles = [["A", "[B]", "[C]", "[D]"] for _ in range(pisos)]
+depas_vendidos = [["" for _ in range(depas_por_piso)] for _ in range(pisos)]
+clientes = []
+
+def comprar_departamento():
+    piso = int(input("Ingrese el numero del piso: "))
+    tipo_departamento = input("Ingrese el tipo de depa (A, B, C, D): ")
+
+    if piso < 1 or piso > pisos:
+        print("El número de piso ingresado es inválido.")
+        return
+
+    if tipo_departamento not in ["A", "B", "C", "D"]:
+        print("El tipo de departamento ingresado es inválido.")
+        return
+
+    departamento = tipo_departamento + str(piso)
+    fila = piso - 1
+
+    if departamento in departamentos_vendidos[fila]:
+        print("departamento no disponible")
+        return
+
+def mostrar_departamentos_disponibles():
+    print("departamentos disponibles:")
+    for piso in range(pisos):
+        print(f"Piso {piso+1}: {departamentos_disponibles[piso]}")
+
+def mostrar_listado_compradores():
+    print("listado de compradores:")
+    compradores_ordenados = sorted(compradores, key=lambda x: x[0])
+    for comprador in compradores_ordenados:
+        print("run: {comprador[0]}, Departamento: {comprador[1]}")
+def monstrar_ganancias_Totales
+
+def mostrar_menu():
+    print("MENU:")
+    print("1. Comprar departamento")
+    print("2. Mostrar departamentos disponibles")
+    print("3. Ver listado de compradores")
+    print("4. Mostrar ganancias totales")
+    print("5. Salir")
+while True:
+  mostrar_menu()
+  opcion= input("ingrese una opcion ")
+  if opcion == "1":
+   comprar_departamento()
+  elif opcion == "2":
+   mostrar_departamentos_disponibles()
+  elif opcion == "3":
+    mostrar_listado_compradores()
+  elif opcion == "4":
+    mostrar_ganancias_totales()
+  elif opcion == "5":
+    print("Vuelva pronto")
+    break
